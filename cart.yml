@@ -1,0 +1,40 @@
+# 服务器相关配置
+server:
+  port: 8763
+  servlet:
+    jsp:
+      init-parameters:
+        development: true
+# spring相关配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: liu
+    url: jdbc:mysql://localhost:3306/dd?characterEncoding=UTF-8&serverTimezone=GMT%2B8
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+  redis:
+    host: 192.168.35.132
+    port: 6379
+  application:
+    name: eureka-cart
+# mybatis相关配置
+mybatis:
+  type-aliases-package: com.peng.entity
+  mapper-locations: classpath:com/peng/mapper/*Mapper.xml
+# 日志
+logging:
+  level:
+    com.peng.dao: debug
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8760/eureka
